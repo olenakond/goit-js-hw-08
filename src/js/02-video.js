@@ -24,19 +24,7 @@ const getStorageData = key => {
 
 const savedCurrenttime = getStorageData('videoplayer-current-time');
 
-if (savedCurrenttime) {
-  player
-  .setCurrentTime(savedCurrenttime)
-  .then(function (seconds) {})
-  .catch(function (error) {
-    switch (error.name) {
-      case 'RangeError':
-        break;
-      default:
-        break;
-    }
-  });
-}
+player.setCurrentTime(savedCurrenttime || 0);
 
 const onPlay = function (data) {
   const currentTime = data.seconds;

@@ -29,11 +29,8 @@ const getStorageData = key => {
 
 let formData = getStorageData('feedback-form-state') || {email: "", message: ""};
 
-if (formData.email) {
+if (formData) {
   emailElement.value = formData.email;
-}
-
-if (formData.message) {
   messageElement.value = formData.message;
 }
 
@@ -56,6 +53,6 @@ function onButtonClick(event) {
   formElement.reset(); 
   formData = {email: "", message: ""};
   } else {
-    console.log('All fields must be filled!')
+    alert('All fields must be filled!');
   }
 }
